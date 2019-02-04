@@ -207,7 +207,7 @@ def run_test_problem1b():
     #   actual = problem1b(YYY, YYY)
     #   print('Test 1 expected:', expected)
     #   print('       actual:  ', actual)
-    # -------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      3
     #    TIME ESTIMATE:   15 minutes.
