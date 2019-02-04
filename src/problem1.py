@@ -28,7 +28,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 
 import testing_helper
 import time
-
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -139,6 +139,21 @@ def run_test_problem1a():
 
     print_summary_of_test_results(test_results)
 
+
+    expected = -1.399 # This is APPROXIMATELY the correct answer.
+    print_expected_result_of_test([3, 5], expected, test_results,
+                                  format_string)
+    actual = problem1a(4, 6)
+    print_actual_result_of_test(expected, actual, test_results, precision=3)
+
+
+    expected = 1.089  # This is APPROXIMATELY the correct answer.
+    print_expected_result_of_test([50, 100], expected, test_results,
+                                  format_string)
+    actual = problem1a(50, 100)
+    print_actual_result_of_test(expected, actual, test_results, precision=3)
+
+    print_summary_of_test_results(test_results)
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
     # Below this comment, add 2 more test cases of your own choosing.
@@ -176,7 +191,10 @@ def problem1a(m, n):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     # -------------------------------------------------------------------------
-
+    sum = 0
+    for k in range(m ** 2, n ** 2 + 1):
+        sum = sum + math.sin(k)
+    return round(sum, 3)
 
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
@@ -198,7 +216,25 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+    expected = 5
+    actual = problem1b(3, 5)
+    print("Test 1 expected:", expected)
+    print("         actual:", actual)
 
+    expected = 1
+    actual = problem1b(2, 1)
+    print("Test 2 expected:", expected)
+    print("         actual:", actual)
+
+    expected = 44
+    actual = problem1b(5, 40)
+    print("Test 3 expected:", expected)
+    print("         actual:", actual)
+
+    expected = 7
+    actual = problem1b(4, 6)
+    print("Test 4 expected:", expected)
+    print("         actual:", actual)
 
 def problem1b(m, f):
     """
@@ -230,7 +266,11 @@ def problem1b(m, f):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
-
+    count = 0
+    for k in range(m, m * f + 1):
+        if is_prime(k):
+            count = count + 1
+    return count
 
 def run_test_problem1c():
     """ Tests the   problem1c   function. """
