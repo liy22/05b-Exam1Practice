@@ -368,7 +368,14 @@ def problem1c(n):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 20 minutes.
     # -------------------------------------------------------------------------
+    count = 0
+    product = 1
+    for k in range(2,n+1):
+        if is_prime(k):
+            count = count +1
+            product = product * k
 
+    return(sum_of_digits(product))
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
